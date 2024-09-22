@@ -83,4 +83,35 @@ registrar_persona(30)  # Este caso debería mostrar un mensaje de error
 calcular_media(15, 18, 20, 22)
 calcular_media(10, 12)  # Este caso debería mostrar un mensaje de error
 ```
+# pregunta3
+```r
+
+import time
+
+def tiempo_ejecucion(func):
+    """Decorador que mide el tiempo de ejecución de una función."""
+    def wrapper(*args, **kwargs):
+        inicio = time.time()  # Tiempo de inicio
+        result = func(*args, **kwargs)
+        fin = time.time()  # Tiempo de fin
+        print(f"Tiempo de ejecución de '{func.__name__}': {fin - inicio:.4f} segundos.")
+        return result
+    return wrapper
+
+@tiempo_ejecucion
+def mayor_numero(*numeros):
+    """Encuentra el mayor número de una lista de números."""
+    if not numeros:
+        print("No se proporcionaron números.")
+        return None
+    mayor = max(numeros)
+    print(f"El mayor número es: {mayor}")
+    return mayor
+
+# Ejemplos de uso
+mayor_numero(5, 10, 15, 2, 8)
+mayor_numero(100, 50, 200, 75)
+mayor_numero(-10, -5, -3, -20, -1)
+```
+
 

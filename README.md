@@ -41,7 +41,7 @@ if __numeros__ == "__main__":
     main()
 ```
 
-#pregunta2
+# pregunta2
 ```r
 from datetime import datetime
 

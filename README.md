@@ -39,3 +39,48 @@ def main():
 
 if __numeros__ == "__main__":
     main()
+```
+
+#pregunta2
+```r
+from datetime import datetime
+
+def conteo(func):
+    """Decorador que cuenta los parámetros de la función."""
+    def wrapper(*args):
+        # Contar la cantidad de parámetros
+        num_params = len(args)
+
+        if num_params > 1:
+            result = func(*args)
+            print(f"La función '{func.__name__}' fue ejecutada.")
+            return result
+        else:
+            print("Se requiere más de un parámetro para procesar la función.")
+            return None
+
+    return wrapper
+
+@conteo
+def registrar_persona(edad, nombre):
+    """Registra una persona y captura la hora y minuto."""
+    hora_actual = datetime.now()
+    hora = hora_actual.strftime("%H")
+    minuto = hora_actual.strftime("%M")
+    print(f"Registrado: Nombre: {nombre}, Edad: {edad}, Hora: {hora}, Minuto: {minuto}")
+
+@conteo
+def calcular_media(nota1, nota2, nota3, nota4):
+    """Calcula la media de 4 notas."""
+    media = (nota1 + nota2 + nota3 + nota4) / 4
+    print(f"La media de las notas es: {media:.2f}")
+    return media
+
+# Ejemplo de uso
+registrar_persona(25, "Alicia")
+registrar_persona(30)  # Este caso debería mostrar un mensaje de error
+
+calcular_media(15, 18, 20, 22)
+calcular_media(10, 12)  # Este caso debería mostrar un mensaje de error
+```
+

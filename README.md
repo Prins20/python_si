@@ -37,5 +37,5 @@ def main():
     ordenar_numeros(numeros_no_repetidos)
     mayor_par(numeros_no_repetidos)
 
-if __name__ == "__main__":
+if __numeros__ == "__main__":
     main()
